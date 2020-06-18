@@ -7,9 +7,9 @@ function start() {
 }
 function preventSubmit(event) {
   event.preventDefault();
-  var form = document.querySelector('#cont-form');
-  btnSubmit.addEventListener('submit', preventSubmit);
   alert(form.value + ' Cadastrado com Sucesso');
+  document.getElementById('myForm').addEventListener('click', preventSubmit, false)
+  aprovarRenda();
 }
 
 function mascara(i, t) {

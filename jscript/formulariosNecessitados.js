@@ -7,9 +7,8 @@ function start() {
 }
 function preventSubmit(event) {
   event.preventDefault();
-  var form = document.querySelector('#idForm');
-  btnSubmit.addEventListener('submit', preventSubmit);
   alert(form.value + ' Cadastrado com Sucesso');
+  document.getElementById('myForm').addEventListener('click', preventSubmit, false)
   aprovarRenda();
 }
 
@@ -41,25 +40,16 @@ selectPaises.onchange = function () {
   selectPaises.value === 'Brasil' ? selectEstado.disabled = false : selectEstado.disabled = "true";
 }
 
-
-
-const renda = document.querySelector('#renda').value;
-function aprovarRenda() {
-  if (renda > 0 && renda <= 500) {
+renda.onblur = function () {
+  const valorRenda = document.querySelector("#renda").value;
+  if (valorRenda >= 0 && valorRenda <= 500) {
     alert("Aprovado");
   } else {
     alert("Reprovado");
   }
 }
 
-const inputKeyRenda = document.getElementById('renda');
 
-inputKeyRenda.addEventListener('keyup', function (e) {
-  var key = e.which || e.keyCode;
-  if (key == 13) {// valor que representa a tecla enter
-    aprovarRenda();
-  }
-})
 
 
 
